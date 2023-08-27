@@ -4,9 +4,6 @@ metadata:
   name: firstapp-deployment
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      deployment: firstapp
   template:
     metadata:
       labels:

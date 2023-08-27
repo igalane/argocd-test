@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: firstapp-cm
 data:
-  BG_COLOR: RED
+  BG_COLOR: YELLOW
   DEPLOY_ENV: DEV

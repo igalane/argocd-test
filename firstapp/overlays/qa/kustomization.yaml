@@ -1,9 +1,16 @@
-namePrefix: production-
-commonLabels:
-  variant: production
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+- includeSelectors: true
+  pairs:
+    variant: qa
+    
+namePrefix: qa-
 commonAnnotations:
-  note: Hello, This is production!
-bases:
+  note: Hello, This is QA Environment!
+resources:
 - ../../base
-patchesStrategicMerge:
-- configMap.yaml
+
+patches:
+- path: configMap.yaml
+
