@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: firstapp-cm
+data:
+  BG_COLOR: BLUE
+  DEPLOY_ENV: QA

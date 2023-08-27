@@ -1,0 +1,10 @@
+namePrefix: production-
+commonLabels:
+  variant: production
+commonAnnotations:
+  note: Hello, This is production!
+bases:
+- ../../base
+patchesStrategicMerge:
+- deployment.yaml
+- configMap.yaml
