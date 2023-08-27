@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: firstapp-service
+spec:
+  selector:
+    deployment: hello
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 8081
+    targetPort: 80
