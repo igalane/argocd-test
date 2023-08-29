@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: project-apps
+  namespace: argocd
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
@@ -10,12 +11,12 @@ spec:
       repoURL: https://github.com/igalane/argocd-test.git
       revision: HEAD
       directories:
-      - path: multiappmultienv/*
+      - path: 'multiappmultienv/*'
   template:
     metadata:
       name: '{{.path.basename}}'
     spec:
-      project: "project-apps"
+      project: 'default'
       source:
         repoURL: https://github.com/igalane/argocd-test.git
         targetRevision: HEAD
