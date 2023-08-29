@@ -1,25 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: firstapp-deployment
+  name: secondapp-deployment
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
-        deployment: firstapp
+        deployment: secondapp
     spec:
       containers:
-      - name: firstapp-container
-        image: ishwargalane/sysinfo-app:app1-v1.0
-        env:
-        - name: BG_COLOR
-          valueFrom:
-            configMapKeyRef:
-              name: firstapp-cm
-              key: BG_COLOR
-        - name: DEPLOY_ENV
-          valueFrom:
-            configMapKeyRef:
-              name: firstapp-cm
-              key: DEPLOY_ENV
+      - name: secondapp-container
+        image: ishwargalane/sysinfo-app:app1-v1.0 #This can be latest on DEV env 
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: secondapp-cm

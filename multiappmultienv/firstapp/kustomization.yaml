@@ -8,9 +8,13 @@ commonLabels:
 resources:
 - deployment.yaml
 - service.yaml
-- configMap.yaml
 
 images:
 - name: ishwargalane/sysinfo-app
   newName: ishwargalane/sysinfo-app
   newTag: app1-v1.1
+
+configMapGenerator:
+- name: firstapp-cm  
+  envs: 
+  - config.properties

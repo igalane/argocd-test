@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: firstapp-service
+  name: secondapp-service
 spec:
   selector:
-    deployment: firstapp
+    deployment: secondapp
   type: ClusterIP
   ports:
   - protocol: TCP
-    port: 8081
+    port: 8082
     targetPort: 80

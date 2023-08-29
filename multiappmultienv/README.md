@@ -1,37 +1,42 @@
 # argocd deploying single app in multiple envs (dev/qa/prod)
 
-kubectl create ns first-app
-kubectl create ns first-app-qa
-kubectl create ns first-app-prod
+kubectl create ns firstapp
+kubectl create ns firstapp-qa
+kubectl create ns firstapp-prod
 
 # Base app for DEV env
 
-k -n first-app apply -k ./base
-k -n first-app get all
+k -n firstapp apply -k ./base
+k -n firstapp get all
 
-k -n first-app port-forward services/firstapp-service 8081:8081
+k -n firstapp port-forward services/firstapp-service 8081:8081
 
 # QA Env 
 
-k -n first-app-qa apply -k ./overlays/qa
-k -n first-app-qa get all
+k -n firstapp-qa apply -k ./overlays/qa
+k -n firstapp-qa get all
 
-k -n first-app-qa port-forward service/qa-firstapp-service 8082:8081
+k -n firstapp-qa port-forward service/qa-firstapp-service 8082:8081
 
 # Prod Env
 
-k -n first-app-prod apply -k ./overlays/prod
-k -n first-app-prod get all
+k -n firstapp-prod apply -k ./overlays/prod
+k -n firstapp-prod get all
 
-k -n first-app-prod port-forward services/prod-firstapp-service 8088:8081
+k -n firstapp-prod port-forward services/prod-firstapp-service 8088:8081
 
 
 #Clean-up
-kubectl delete ns first-app
-kubectl create ns first-app
+kubectl delete ns firstapp
+kubectl create ns firstapp
 
-kubectl delete ns first-app-qa 
-kubectl create ns first-app-qa
+kubectl delete ns firstapp-qa 
+kubectl create ns firstapp-qa
 
-kubectl delete ns first-app-prod
-kubectl create ns first-app-prod
+kubectl delete ns firstapp-prod
+kubectl create ns firstapp-prod
+
+# Colors for ENVS
+# APPName     DEV     QA      PROD
+# first       RED     ORANGE  GREEN
+# second      SILVER  CORAL   GOLD
