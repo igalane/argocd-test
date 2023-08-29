@@ -25,6 +25,10 @@ k -n firstapp-prod get all
 
 k -n firstapp-prod port-forward services/prod-firstapp-service 8088:8081
 
+# create projets on Argo first 
+# default - already exists
+# qa-apps
+# prod-apps
 
 #Clean-up
 kubectl delete ns firstapp

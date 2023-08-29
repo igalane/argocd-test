@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: dev-apps
+  name: qa-apps
   namespace: argocd
 spec:
   goTemplate: true
@@ -16,7 +16,7 @@ spec:
     metadata:
       name: '{{.path.basename}}'
     spec:
-      project: 'default'
+      project: 'qa-apps'
       source:
         repoURL: https://github.com/igalane/argocd-test.git
         targetRevision: HEAD

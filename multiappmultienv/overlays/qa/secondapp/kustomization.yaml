@@ -7,15 +7,15 @@ namePrefix: qa-
 commonAnnotations:
   note: Hello, This is QA Environment!
 resources:
-- ../../../base/firstapp
+- ../../../base/secondapp
 
 images:
 - name: ishwargalane/sysinfo-app
   newName: ishwargalane/sysinfo-app
-  newTag: app1-v1.0
+  newTag: app2-v1.0
 
 configMapGenerator:
-- name: firstapp-cm
+- name: secondapp-cm
   behavior: merge
   envs: 
   - config.properties
