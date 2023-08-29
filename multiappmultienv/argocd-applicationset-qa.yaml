@@ -14,7 +14,7 @@ spec:
       - path: 'multiappmultienv/base/*'
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: 'qa-{{.path.basename}}'
     spec:
       project: 'qa-apps'
       source:
