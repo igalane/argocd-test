@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: secondapp-container
-        image: ishwargalane/sysinfo-app:app1-v1.0 #This can be latest on DEV env 
+        image: ishwargalane/sysinfo-app:app2-v1.0 #This can be latest on DEV env 
         ports:
         - containerPort: 80
         envFrom:
