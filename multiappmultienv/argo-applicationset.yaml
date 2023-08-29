@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: project-apps
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: https://github.com/igalane/argocd-test.git
+      revision: HEAD
+      directories:
+      - path: multiappmultienv/*
+  template:
+    metadata:
+      name: '{{.path.basename}}'
+    spec:
+      project: "my-project"
+      source:
+        repoURL: https://github.com/igalane/argocd-test.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{.path.basename}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
