@@ -34,14 +34,14 @@ k -n prod port-forward services/prod-firstapp-service 8088:8081
 # Or quivalent on UI
 
 #Clean-up
-kubectl delete ns firstapp
-kubectl create ns firstapp
+kubectl delete ns dev
+kubectl create ns dev
 
-kubectl delete ns firstapp-qa 
-kubectl create ns firstapp-qa
+kubectl delete ns qa
+kubectl create ns qa
 
-kubectl delete ns firstapp-prod
-kubectl create ns firstapp-prod
+kubectl delete ns prod
+kubectl create ns prod
 
 # Colors for ENVS
 # APPName     DEV     QA      PROD

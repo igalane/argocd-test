@@ -12,7 +12,7 @@ resources:
 images:
 - name: ishwargalane/sysinfo-app
   newName: ishwargalane/sysinfo-app
-  newTag: app1-v1.0
+  newTag: app1-v1.1
 
 configMapGenerator:
 - name: firstapp-cm  
