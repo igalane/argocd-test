@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/igalane/argocd-test.git
     targetRevision: HEAD
-    path: multiappmultienv/overlays/qa/
+    path: multiappmultienv/overlays/qa
   destination:
     server: https://kubernetes.default.svc
     namespace: qa
