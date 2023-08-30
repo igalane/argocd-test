@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: firstapp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/igalane/argocd-test.git
+    targetRevision: HEAD
+    path: multiappmultienv/base/firstapp
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
