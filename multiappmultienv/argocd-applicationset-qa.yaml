@@ -11,7 +11,7 @@ spec:
       repoURL: https://github.com/igalane/argocd-test.git
       revision: HEAD
       directories:
-      - path: 'multiappmultienv/base/*'
+      - path: 'multiappmultienv/overlays/qa/*'
   template:
     metadata:
       name: 'qa-{{.path.basename}}'
