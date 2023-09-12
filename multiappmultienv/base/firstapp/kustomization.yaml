@@ -9,7 +9,7 @@ configMapGenerator:
 images:
 - name: ishwargalane/sysinfo-app
   newName: ishwargalane/sysinfo-app
-  newTag: app1-v0.2
+  newTag: app1-v0.1
 kind: Kustomization
 resources:
 - deployment.yaml
